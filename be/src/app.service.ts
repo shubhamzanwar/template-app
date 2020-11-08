@@ -29,7 +29,7 @@ export class AppService {
 
   toggleNoteComplete(id: string) {
     const noteIdx = state.findIndex((item) => item.id === id);
-    if(!noteIdx) return null;
+    if(noteIdx === -1) return null;
 
     const note = state[noteIdx];
     state.splice(noteIdx, 1, {
@@ -45,7 +45,7 @@ export class AppService {
 
   deleteNote(id: string): Note {
     const noteIdx = state.findIndex((item) => item.id === id);
-    if(!noteIdx) return null;
+    if(noteIdx === -1) return null;
 
     const note = state.splice(noteIdx, 1)[0];
     return note;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Todo } from "./components/Todo";
+import { Note } from "./components/Note";
 import * as styles from "./App.module.css";
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
     });
 
     setNotes([...notes, note]);
+    setUserInput('');
   }
 
   const toggleComplete = async (id) => {
@@ -45,11 +46,11 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <h2>Todos App</h2>
+      <h2 className={styles.header}>Notes App</h2>
       <div className={styles.inputGroup}>
         <input
           type="text"
-          placeholder="add a new todo"
+          placeholder="Add a new note"
           className={styles.input}
           onChange={e => setUserInput(e.target.value)}
         />
@@ -57,7 +58,7 @@ function App() {
       </div>
       <div className={styles.notesList}>
         {notes.map((note) => {
-          return <Todo
+          return <Note
             text={note.text}
             completed={note.complete}
             id={note.id}

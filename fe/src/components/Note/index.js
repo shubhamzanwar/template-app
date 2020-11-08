@@ -1,7 +1,7 @@
 import React from 'react';
 import * as styles from './styles.module.css';
 
-export const Todo = ({id, text, completed, toggleComplete, deleteTodo}) => {
+export const Note = ({id, text, completed, toggleComplete, deleteTodo}) => {
     return (
         <div className={styles.todo}>
             <span className="material-icons" onClick={() => toggleComplete(id)}>
